@@ -1,1 +1,28 @@
-<p>login-form works!</p>
+<section class="login-form">
+    <div class="login-form__content">
+        <div class="login-form__content__brand">
+            <img src="logo.svg" alt="Logo Poup.ai" class="login-form__content__brand__image">
+            <h1 class="login-form__content__brand__text">Poup.ai</h1>
+        </div>
+        <h2 class="login-form__content__title">Acesse</h2>
+        <p class="login-form__content__subtitle">Com seu email e senha</p>
+        <form class="login-form__content__form">
+
+            <div>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Digite seu email" required>
+            </div>
+            <div>
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" name="password" class="form-control" placeholder="Digite sua senha" required>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="checkbox" class="form-check-input">
+                <label for="checkbox" class="form-check-label">Lembrar meu acesso</label>
+            </div>
+            <button type="submit" class="login-form__content__form__button btn">
+                Acessar
+            </button>
+        </form>
+    </div>
+</section>
