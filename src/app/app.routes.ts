@@ -6,7 +6,7 @@ export const routes: Routes = [
   {
     path: 'mfe',
     loadComponent: () =>
-      loadRemoteModule('mfe', './Component').then((m) => m.HomeComponent),
+      loadRemoteModule('mfe', './Component').then((m) => m.App),
   },
   {
     path: 'login',
