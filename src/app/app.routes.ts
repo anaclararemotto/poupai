@@ -2,7 +2,7 @@ import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/initial', pathMatch: 'full' },
   {
     path: 'mfe',
     loadComponent: () =>
@@ -13,5 +13,10 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/login/login-module').then((m) => m.LoginModule),
   },
-  { path: '**', redirectTo: '/login' },
+  {
+    path: 'initial',
+    loadChildren: () =>
+      import('./features/initial/initial-module').then((m) => m.InitialModule),
+  },
+  { path: '**', redirectTo: '/initial' },
 ];

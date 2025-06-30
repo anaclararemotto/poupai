@@ -1,0 +1,31 @@
+@use '../../../../styles/base/index' as *;
+
+.login-form{
+    width: 50dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__content{
+    width: 50%;
+
+    &__brand{
+        display: flex;
+      justify-content: center;
+      gap: 5;
+      font-size: 48px;
+
+      &__image{
+        width: 15%;
+      }
+
+      &__text {
+        font-weight: 700;
+        color: #002952;
+      }
+    }
+  }
+
+}
