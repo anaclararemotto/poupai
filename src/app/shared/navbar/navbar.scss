@@ -6,7 +6,9 @@
   @include flex-between;
   font-family: $font-poppins;
 
-  &__brand {
+  &__link{
+    text-decoration: none;
+    &__brand {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -20,6 +22,7 @@
         color: $blue-500;
         
     }
+  }
   }
 
   &__list {

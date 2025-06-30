@@ -18,5 +18,10 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/initial/initial-module').then((m) => m.InitialModule),
   },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./features/about/about-module').then((m) => m.AboutModule),
+  },
   { path: '**', redirectTo: '/initial' },
 ];
