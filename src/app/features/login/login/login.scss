@@ -1,0 +1,12 @@
+@use '../../../../styles/base/index' as *;
+
+
+.login{
+    font-family: $font-poppins;
+}
+
+@include respond(lg){
+.login{
+    display: flex;
+}
+}

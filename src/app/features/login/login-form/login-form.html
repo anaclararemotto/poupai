@@ -1,11 +1,13 @@
 <section class="login-form">
     <div class="login-form__content">
         <div class="login-form__content__brand">
-            <img src="logo.svg" alt="Logo Poup.ai" class="login-form__content__brand__image">
+            <img src="logo.svg" alt="Logo Poup.ai" class="login-form__content__brand__img">
             <h1 class="login-form__content__brand__text">Poup.ai</h1>
         </div>
-        <h2 class="login-form__content__title">Acesse</h2>
-        <p class="login-form__content__subtitle">Com seu email e senha</p>
+        <div class="login-form__content__text">
+            <h2 class="login-form__content__text__title">Acesse</h2>
+        <p class="login-form__content__text__subtitle">Com seu email e senha</p>
+        </div>
         <form class="login-form__content__form" (ngSubmit)="onSubmit()">
 
             <div>
@@ -20,12 +22,13 @@
                 <input type="checkbox" name="checkbox" class="form-check-input">
                 <label for="checkbox" class="form-check-label">Lembrar meu acesso</label>
             </div>
-            <button type="submit" class="login-form__content__form__button btn">
-                Acessar
-            </button>
             <div *ngIf="message" [ngClass]="{'success-message': isSuccess, 'error-message': !isSuccess}" class="login-form__content__form__message">
         {{ message }}
       </div>
+            <button type="submit" class="login-form__content__form__button btn">
+                Acessar
+            </button>
+            
         </form>
     </div>
 </section>
