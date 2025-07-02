@@ -1,0 +1,55 @@
+@use "../../../../styles/base/index" as *;
+
+.navbar {
+  display: none;
+}
+
+.initial {
+  &__desktop {
+    display: none;
+  }
+}
+
+.footer {
+  display: none;
+}
+
+@include respond(md) {
+  .navbar {
+    display: block;
+  }
+
+  .initial {
+    padding: 0rem 3.125rem;
+    font-family: $font-poppins;
+    height: calc(100dvh - 13.125rem);
+    &__desktop {
+      @include flex-center;
+      gap: 0.625rem;
+
+      &__content {
+        &__title {
+          @include font-heading-3;
+        }
+
+        &__paragraph {
+          @include font-body-2;
+        }
+      }
+
+      &__img {
+        width: 70%;
+      }
+    }
+  }
+
+  .footer {
+    display: block;
+  }
+}
+
+@include respond(lg) {
+    .initial {
+    padding: 0rem 10.625rem;
+    }
+}

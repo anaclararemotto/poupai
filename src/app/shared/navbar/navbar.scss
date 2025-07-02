@@ -1,0 +1,49 @@
+@use "../../../styles/base/index" as *;
+
+.nav {
+  width: 100%;
+  padding: 1.875rem 3.125rem;
+  @include flex-between;
+  font-family: $font-poppins;
+
+  &__link{
+    text-decoration: none;
+    &__brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &__img{
+        width: 20%;
+    }
+
+    &__title{
+        @include font-heading-3;
+        color: $blue-500;
+        
+    }
+  }
+  }
+
+  &__list {
+    display: flex;
+    gap: 20px;
+
+    &__item{
+        text-decoration: none;
+        color: $black;
+    }
+  }
+
+  &__btn{
+    background-color: $blue-500;
+    color: $white;
+    
+  }
+}
+
+@include respond(lg) {
+    .nav{
+          padding: 1.875rem 10.625rem;
+    }
+}
