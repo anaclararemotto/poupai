@@ -1,0 +1,51 @@
+@use "../../../../styles/base/index" as *;
+
+.services-bottom {
+  @include flex-center;
+
+  &__left {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+
+    &__img {
+      width: 70%;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    
+
+    &__first {
+        padding-top: 6px;
+      &__title {
+        @include font-heading-4;
+      }
+      &__paragraph {
+        @include font-body-2;
+      }
+    }
+
+    &__second {
+        padding-left: 50px;
+      &__title {
+        @include font-heading-4;
+      }
+      &__paragraph {
+        @include font-body-2;
+      }
+    }
+
+    &__third {
+        padding-left: 100px;
+      &__title {
+        @include font-heading-4;
+      }
+      &__paragraph {
+        @include font-body-2;
+      }
+    }
+  }
+}
