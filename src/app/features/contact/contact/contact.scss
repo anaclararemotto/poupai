@@ -1,0 +1,12 @@
+@use "../../../../styles/base/index" as *;
+
+
+.contact{
+    font-family: $font-poppins;
+}
+
+@include respond(lg){
+    .contact{
+        display: flex;
+    }
+}
