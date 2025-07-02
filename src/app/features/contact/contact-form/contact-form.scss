@@ -1,10 +1,10 @@
 @use "../../../../styles/base/index" as *;
 
 .container {
-  width: 50dvw;
+  width: 100dvw;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   padding: 1.5625rem;
 
   &__form-area {
@@ -43,4 +43,9 @@
 }
 
 @include respond(lg) {
+.container {
+  width: 50dvw;
+  justify-content: end;
+  
+}
 }
