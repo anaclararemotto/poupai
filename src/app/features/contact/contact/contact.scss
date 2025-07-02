@@ -3,6 +3,7 @@
 
 .contact{
     font-family: $font-poppins;
+    height: calc(100dvh - 13.125rem);
 }
 
 @include respond(lg){
