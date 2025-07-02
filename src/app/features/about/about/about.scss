@@ -1,0 +1,34 @@
+@use "../../../../styles/base/index" as *;
+
+.about {
+  padding: 0rem 3.125rem;
+  font-family: $font-poppins;
+  height: calc(100dvh - 13.125rem);
+
+  &__title {
+    @include font-heading-4;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    padding: 1.25rem 0rem;
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      &__paragraph {
+        @include font-body-2;
+      }
+    }
+
+    
+  }
+}
+
+@include respond(lg){
+    .about{
+        padding: 0rem 10.625rem;
+    }
+}
