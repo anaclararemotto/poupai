@@ -28,5 +28,10 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/contact/contact-module').then((m) => m.ContactModule),
   },
+  {
+    path: 'services',
+    loadChildren: () =>
+      import('./features/services/services-module').then((m) => m.ServicesModule),
+  },
   { path: '**', redirectTo: '/initial' },
 ];
