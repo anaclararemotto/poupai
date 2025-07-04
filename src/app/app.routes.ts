@@ -14,6 +14,11 @@ export const routes: Routes = [
       import('./features/login/login-module').then((m) => m.LoginModule),
   },
   {
+    path: 'signup',
+    loadChildren: () =>
+      import('./features/signup/signup-module').then((m) => m.SignupModule),
+  },
+  {
     path: 'initial',
     loadChildren: () =>
       import('./features/initial/initial-module').then((m) => m.InitialModule),
