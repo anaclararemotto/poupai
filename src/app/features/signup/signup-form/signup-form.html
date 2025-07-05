@@ -14,13 +14,13 @@
         Com seus dados pessoais
       </p>
     </div>
-    <form class="signup-form__content__form" (ngSubmit)="onSubmit()" >
+    <form class="signup-form__content__form" (ngSubmit)="onSubmit()">
       <div>
         <label for="name" class="form-label">Nome</label>
         <input
           type="text"
           name="name"
-          [(ngModel)] = "nome"
+          [(ngModel)]="nome"
           class="form-control"
           placeholder="Digite seu nome"
           required
@@ -31,7 +31,7 @@
         <input
           type="email"
           name="email"
-          [(ngModel)] = "email"
+          [(ngModel)]="email"
           class="form-control"
           placeholder="Digite seu email"
           required
@@ -42,13 +42,18 @@
         <input
           type="password"
           name="password"
-          [(ngModel)] = "senha"
+          [(ngModel)]="senha"
           class="form-control"
           placeholder="Digite sua senha"
           required
         />
       </div>
-      
+      <div
+        *ngIf="message"
+        [ngClass]="{ 'success': isSuccess, 'error': !isSuccess }"
+      >
+        {{ message }}
+      </div>
       <button type="submit" class="signup-form__content__form__button btn">
         Cadastrar
       </button>
