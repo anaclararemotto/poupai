@@ -1,0 +1,11 @@
+@use "../../../../styles/base/index" as *;
+
+.signup {
+  font-family: $font-poppins;
+}
+
+@include respond(lg) {
+  .signup {
+    display: flex;
+  }
+}
