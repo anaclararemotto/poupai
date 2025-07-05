@@ -48,6 +48,16 @@
       padding: 3.125rem 1.875rem;
       gap: 0.9375rem;
 
+      &__input {
+        &:invalid.ng-touched {
+          border-color: $red-normal;
+        }
+      }
+
+      &__centralize {
+        text-align: center;
+      }
+
       &__button {
         background-color: $blue-500;
         color: $white;
@@ -58,11 +68,20 @@
         color: $white;
       }
 
-      &__message {
+      &__paragraph {
         text-align: center;
       }
     }
   }
+}
+
+.error {
+  color: $red-normal;
+  font-size: 0.875rem;
+}
+
+.success {
+  color: $green-normal;
 }
 
 @include respond(md) {
