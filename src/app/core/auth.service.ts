@@ -5,14 +5,12 @@ import { Observable, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-
 export class AuthService {
-  
-  private readonly API = 'http://localhost:4000'
+  private readonly API = 'http://localhost:4000';
 
   constructor(private http: HttpClient) {}
 
-  login(dados: { email: string; senha: string}) : Observable<any> {
+  login(dados: { email: string; senha: string }): Observable<any> {
     return this.http.post(`${this.API}/login`, dados).pipe(
       tap((response: any) => {
         if (response && response.token) {
@@ -21,16 +19,20 @@ export class AuthService {
       })
     );
   }
+  
+  cadastrarUsuario(dados: { nome: string; email: string; senha: string }): Observable<any> {
+    return this.http.post(`${this.API}/usuario`, dados);
+  }
 
   logout(): void {
     localStorage.removeItem('token');
   }
 
-  get token(): string | null{
+  get token(): string | null {
     return localStorage.getItem('token');
   }
 
-  isLoggedIn(): boolean{
+  isLoggedIn(): boolean {
     return !!this.token;
   }
 }
