@@ -85,25 +85,24 @@
           color: $blue-500;
         }
       }
-       &__text {
-
-          &__title,
-          &__subtitle {
-            color: $black;
-          }
+      &__text {
+        &__title,
+        &__subtitle {
+          color: $black;
         }
+      }
 
-        &__form {
-          padding: 0 1.875rem;
-        }
+      &__form {
+        padding: 0 1.875rem;
+      }
     }
   }
 }
 
 @include respond(lg) {
-    .login-form{
+  .login-form {
     width: 50dvw;
 
-     background-color: $white;
-}
+    background-color: $white;
+  }
 }
