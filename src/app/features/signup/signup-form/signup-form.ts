@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { AuthService } from '../../../core/auth.service';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../core/auth.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -19,13 +19,9 @@ export class SignupForm {
   isSuccess: boolean = false;
   isLoading: boolean = false;
 
-  constructor(
-    private authService: AuthService,
-    private router: Router 
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(form: NgForm) {
-
     this.message = '';
     this.isSuccess = false;
 
@@ -57,14 +53,17 @@ export class SignupForm {
         console.error('Erro ao cadastrar (frontend catch):', err);
 
         if (err.status === 409 || (err.error && err.error.code === 11000)) {
-    this.message = 'Este email já está cadastrado. Por favor, use outro email.';
-  } else if (err.error?.message) {
-    this.message = err.error.message;
-  } else if (err.status === 400) {
-    this.message = 'Dados inválidos ou incompletos.';
-  } else {
-    this.message = `Erro do servidor: ${err.status} - ${err.statusText || 'Erro desconhecido'}`;
-  }
+          this.message =
+            'Este email já está cadastrado. Por favor, use outro email.';
+        } else if (err.error?.message) {
+          this.message = err.error.message;
+        } else if (err.status === 400) {
+          this.message = 'Dados inválidos ou incompletos.';
+        } else {
+          this.message = `Erro do servidor: ${err.status} - ${
+            err.statusText || 'Erro desconhecido'
+          }`;
+        }
       },
     });
   }
