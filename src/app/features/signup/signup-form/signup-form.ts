@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../../core/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -17,22 +17,24 @@ export class SignupForm {
   senha = '';
   message: string = '';
   isSuccess: boolean = false;
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
     private router: Router 
   ) {}
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
 
     this.message = '';
     this.isSuccess = false;
 
-    if (!this.nome || !this.email || !this.senha) {
-      this.message = 'Por favor, preencha todos os campos.';
+    if (form.invalid) {
+      this.message = 'Por favor, preencha todos os campos corretamente.';
       return;
     }
 
+    this.isLoading = true;
 
     const dados = {
       nome: this.nome,
@@ -44,22 +46,25 @@ export class SignupForm {
       next: (res) => {
         this.message = res.message || 'Cadastro realizado com sucesso!';
         this.isSuccess = true;
+        this.isLoading = false;
         console.log('Usuário cadastrado:', res);
         this.router.navigate(['/login']);
       },
       error: (err: HttpErrorResponse) => {
         this.isSuccess = false;
+        this.isLoading = false;
+        this.isSuccess = false;
         console.error('Erro ao cadastrar (frontend catch):', err);
 
-        if (err.error && err.error.message) {
-          this.message = err.error.message;
-        } else if (err.status === 400) {
-          this.message = 'Dados inválidos ou incompletos.';
-        } else if (err.status === 409) {
-          this.message = 'Este email já está em uso.';
-        } else {
-          this.message = `Erro do servidor: ${err.status} - ${err.statusText || 'Erro desconhecido'}`;
-        }
+        if (err.status === 409 || (err.error && err.error.code === 11000)) {
+    this.message = 'Este email já está cadastrado. Por favor, use outro email.';
+  } else if (err.error?.message) {
+    this.message = err.error.message;
+  } else if (err.status === 400) {
+    this.message = 'Dados inválidos ou incompletos.';
+  } else {
+    this.message = `Erro do servidor: ${err.status} - ${err.statusText || 'Erro desconhecido'}`;
+  }
       },
     });
   }

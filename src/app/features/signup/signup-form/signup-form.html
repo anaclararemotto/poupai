@@ -14,7 +14,12 @@
         Com seus dados pessoais
       </p>
     </div>
-    <form class="signup-form__content__form" (ngSubmit)="onSubmit()">
+    <form
+    #form="ngForm"
+      class="signup-form__content__form"
+      (ngSubmit)="onSubmit(form)"
+      novalidate
+    >
       <div>
         <label for="name" class="form-label">Nome</label>
         <input
@@ -24,7 +29,11 @@
           class="form-control"
           placeholder="Digite seu nome"
           required
+          #nomeCtrl="ngModel"
         />
+        <span class="error" *ngIf="nomeCtrl.invalid && nomeCtrl.touched"
+          >Nome é obrigatório.</span
+        >
       </div>
       <div>
         <label for="email" class="form-label">Email</label>
@@ -35,7 +44,11 @@
           class="form-control"
           placeholder="Digite seu email"
           required
+          #emailCtrl="ngModel"
         />
+        <span class="error" *ngIf="emailCtrl.invalid && emailCtrl.touched"
+          >Email válido é obrigatório.</span
+        >
       </div>
       <div>
         <label for="password" class="form-label">Senha</label>
@@ -46,16 +59,18 @@
           class="form-control"
           placeholder="Digite sua senha"
           required
+          minlength="6"
+          #senhaCtrl="ngModel"
         />
+        <span class="error" *ngIf="senhaCtrl.invalid && senhaCtrl.touched"
+          >Senha precisa ter pelo menos 6 caracteres.</span
+        >
       </div>
-      <div
-        *ngIf="message"
-        [ngClass]="{ 'success': isSuccess, 'error': !isSuccess }"
-      >
-        {{ message }}
-      </div>
-      <button type="submit" class="signup-form__content__form__button btn">
-        Cadastrar
+      <div *ngIf="message" [ngClass]="{ 'success': isSuccess, 'error': !isSuccess }">
+    {{ message }}
+  </div>
+      <button type="submit" class="signup-form__content__form__button btn" [disabled]="isLoading || form.invalid">
+        {{ isLoading ? 'Cadastrando...' : 'Cadastrar' }}
       </button>
       <p>Já tem cadastro? <a href="login">Login</a></p>
     </form>
