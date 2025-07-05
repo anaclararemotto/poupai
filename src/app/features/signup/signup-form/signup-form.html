@@ -1,35 +1,58 @@
 <section class="signup-form">
-    <div class="signup-form__content">
-        <div class="signup-form__content__brand">
-            <img src="logo.svg" alt="Logo Poup.ai" class="signup-form__content__brand__img">
-            <h1 class="signup-form__content__brand__text">Poup.ai</h1>
-        </div>
-        <div class="signup-form__content__text">
-            <h2 class="signup-form__content__text__title">Cadastre-se</h2>
-        <p class="signup-form__content__text__subtitle">Com seus dados pessoais</p>
-        </div>
-        <form class="signup-form__content__form">
-
-            <div>
-                <label for="name" class="form-label">Nome</label>
-                <input type="text" name="name" class="form-control" placeholder="Digite seu nome" required >
-            </div>
-            <div>
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Digite seu email" required >
-            </div>
-            <div>
-                <label for="password" class="form-label">Senha</label>
-                <input type="password" name="password" class="form-control" placeholder="Digite sua senha" required >
-            </div>
-            <div class="form-check">
-                <input type="checkbox" name="checkbox" class="form-check-input">
-                <label for="checkbox" class="form-check-label">Lembrar meu acesso</label>
-            </div>
-            <button type="submit" class="signup-form__content__form__button btn">
-                Acessar
-            </button>
-            <p>Já tem cadastro? <a href="login">Login</a></p>
-        </form>
+  <div class="signup-form__content">
+    <div class="signup-form__content__brand">
+      <img
+        src="logo.svg"
+        alt="Logo Poup.ai"
+        class="signup-form__content__brand__img"
+      />
+      <h1 class="signup-form__content__brand__text">Poup.ai</h1>
     </div>
+    <div class="signup-form__content__text">
+      <h2 class="signup-form__content__text__title">Cadastre-se</h2>
+      <p class="signup-form__content__text__subtitle">
+        Com seus dados pessoais
+      </p>
+    </div>
+    <form class="signup-form__content__form" (ngSubmit)="onSubmit()" >
+      <div>
+        <label for="name" class="form-label">Nome</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)] = "nome"
+          class="form-control"
+          placeholder="Digite seu nome"
+          required
+        />
+      </div>
+      <div>
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)] = "email"
+          class="form-control"
+          placeholder="Digite seu email"
+          required
+        />
+      </div>
+      <div>
+        <label for="password" class="form-label">Senha</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)] = "senha"
+          class="form-control"
+          placeholder="Digite sua senha"
+          required
+        />
+      </div>
+      
+      <button type="submit" class="signup-form__content__form__button btn">
+        Cadastrar
+      </button>
+      <p>Já tem cadastro? <a href="login">Login</a></p>
+    </form>
+  </div>
 </section>
