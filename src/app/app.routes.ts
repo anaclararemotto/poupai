@@ -1,12 +1,13 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Routes } from '@angular/router';
+import { AuthGuard } from './core/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/initial', pathMatch: 'full' },
   {
-    path: 'mfe',
+    path: 'home',
     loadComponent: () =>
-      loadRemoteModule('mfe', './Component').then((m) => m.App),
+      loadRemoteModule('mfe', './Component').then((m) => m.App), canActivate: [AuthGuard],
   },
   {
     path: 'login',
