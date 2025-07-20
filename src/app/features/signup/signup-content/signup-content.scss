@@ -1,0 +1,33 @@
+@use "../../../../styles/base/index" as *;
+
+.signup-content {
+  display: none;
+}
+
+@include respond(md) {
+  .signup-content {
+    display: none;
+  }
+}
+
+@include respond(lg) {
+  .signup-content {
+    width: 50dvw;
+    background-color: $blue-500;
+    height: 100dvh;
+    @include flex-center;
+    flex-direction: column;
+    gap: 10px;
+
+    &__img {
+      width: 50%;
+    }
+
+    &__text {
+      color: $white;
+      @include font-body-2;
+      text-align: center;
+      width: 70%;
+    }
+  }
+}

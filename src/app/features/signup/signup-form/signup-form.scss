@@ -1,6 +1,6 @@
 @use "../../../../styles/base/index" as *;
 
-.login-form {
+.signup-form {
   display: flex;
   flex-direction: row;
   max-width: 100dvw;
@@ -53,7 +53,6 @@
           border-color: $red-normal;
         }
       }
-
       &__centralize {
         text-align: center;
       }
@@ -85,7 +84,7 @@
 }
 
 @include respond(md) {
-  .login-form {
+  .signup-form {
     background-color: $blue-500;
     @include flex-center;
     &__content {
@@ -119,7 +118,7 @@
 }
 
 @include respond(lg) {
-  .login-form {
+  .signup-form {
     width: 50dvw;
 
     background-color: $white;

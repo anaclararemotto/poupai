@@ -1,0 +1,90 @@
+<section class="signup-form">
+  <div class="signup-form__content">
+    <div class="signup-form__content__brand">
+      <img
+        src="logo.svg"
+        alt="Logo Poup.ai"
+        class="signup-form__content__brand__img"
+      />
+      <h1 class="signup-form__content__brand__text">Poup.ai</h1>
+    </div>
+    <div class="signup-form__content__text">
+      <h2 class="signup-form__content__text__title">Cadastre-se</h2>
+      <p class="signup-form__content__text__subtitle">
+        Com seus dados pessoais
+      </p>
+    </div>
+    <form
+      #form="ngForm"
+      class="signup-form__content__form"
+      (ngSubmit)="onSubmit(form)"
+      novalidate
+    >
+      <div>
+        <label for="name" class="form-label signup-form__content__form__input"
+          >Nome</label
+        >
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="nome"
+          class="form-control signup-form__content__form__input"
+          placeholder="Digite seu nome"
+          required
+          #nomeCtrl="ngModel"
+        />
+        <span class="error" *ngIf="nomeCtrl.invalid && nomeCtrl.touched"
+          >Nome é obrigatório.</span
+        >
+      </div>
+      <div>
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          class="form-control signup-form__content__form__input"
+          placeholder="Digite seu email"
+          required
+          #emailCtrl="ngModel"
+        />
+        <span class="error" *ngIf="emailCtrl.invalid && emailCtrl.touched"
+          >Email válido é obrigatório.</span
+        >
+      </div>
+      <div>
+        <label for="password" class="form-label">Senha</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="senha"
+          class="form-control signup-form__content__form__input"
+          placeholder="Digite sua senha"
+          required
+          minlength="6"
+          #senhaCtrl="ngModel"
+        />
+        <span class="error" *ngIf="senhaCtrl.invalid && senhaCtrl.touched"
+          >Senha precisa ter pelo menos 6 caracteres.</span
+        >
+      </div>
+      <div
+        *ngIf="message"
+        class="signup-form__content__form__centralize"
+        [ngClass]="{ 'success': isSuccess, 'error': !isSuccess }"
+      >
+        {{ message }}
+      </div>
+      <button
+        type="submit"
+        class="signup-form__content__form__button btn"
+        [disabled]="isLoading || form.invalid"
+      >
+        {{ isLoading ? 'Cadastrando...' : 'Cadastrar' }}
+      </button>
+      <p class="signup-form__content__form__paragraph">
+        Já tem cadastro? <a href="login">Login</a>
+      </p>
+    </form>
+  </div>
+</section>
