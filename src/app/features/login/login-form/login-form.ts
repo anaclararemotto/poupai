@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../core/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -38,10 +38,11 @@ export class LoginForm {
 
     this.authService.login(loginData).subscribe({
       next: (res) => {
+        console.log('Login sucesso, navegando para /mfe');
         this.message = res.message || 'Login realizado com sucesso!';
         this.isSuccess = true;
 
-        this.router.navigate(['/mfe']);
+        this.router.navigate(['/home']);
       },
       error: (err: HttpErrorResponse) => {
         this.isSuccess = false;
