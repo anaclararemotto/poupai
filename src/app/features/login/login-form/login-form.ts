@@ -42,7 +42,8 @@ export class LoginForm {
         this.message = res.message || 'Login realizado com sucesso!';
         this.isSuccess = true;
 
-        this.router.navigate(['/home']);
+        // this.router.navigate(['/home']);
+        window.location.href = 'http://localhost:4201/home';
       },
       error: (err: HttpErrorResponse) => {
         this.isSuccess = false;
