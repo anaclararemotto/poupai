@@ -3,13 +3,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../core/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
+
 
 @Component({
   selector: 'app-signup-form',
   imports: [FormsModule, CommonModule],
   templateUrl: './signup-form.html',
   styleUrl: './signup-form.scss',
+  standalone: true, // <--- ADICIONE ESTA LINHA
 })
 export class SignupForm {
   nome = '';
