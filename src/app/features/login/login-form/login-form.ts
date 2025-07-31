@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login-form',
+  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './login-form.html',
   styleUrl: './login-form.scss',
@@ -34,20 +35,19 @@ export class LoginForm {
       senha: this.senha,
     };
 
-    console.log('Tentando com: ', loginData);
+    console.log('LoginForm: Tentando fazer login com: ', loginData);
 
     this.authService.login(loginData).subscribe({
       next: (res) => {
-        console.log('Login sucesso, navegando para /mfe');
+        console.log(
+          'LoginForm: Login request completed. AuthService is handling navigation.'
+        );
         this.message = res.message || 'Login realizado com sucesso!';
         this.isSuccess = true;
-
-        // this.router.navigate(['/home']);
-        window.location.href = 'http://localhost:4201/home';
       },
       error: (err: HttpErrorResponse) => {
         this.isSuccess = false;
-        console.error('Erro na requisição (frontend catch): ', err);
+        console.error('LoginForm: Erro na requisição (frontend catch): ', err);
 
         if (err.error && err.error.message) {
           this.message = err.error.message;
