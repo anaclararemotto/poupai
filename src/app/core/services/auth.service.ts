@@ -108,7 +108,7 @@ export class AuthService {
     console.group('AuthService Cadastrar Usuário');
     console.log('AuthService: Tentando cadastrar usuário.');
     console.groupEnd();
-    return this.http.post(`${this.API}/usuario`, dados);
+    return this.http.post(`${this.API}/auth`, dados);
   }
 
   logout(): void {
