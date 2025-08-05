@@ -1,59 +1,74 @@
-# Poupai
+# Poup.ai - Shell 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Este projeto representa o **Shell principal** do sistema Poup.ai, responsável por hospedar e orquestrar o Micro Frontend (MFE) utilizando **Native Federation** com Angular 20.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tecnologias
+
+- Angular 20
+- Module Federation via `@angular-architects/native-federation`
+- Bootstrap 5 + Bootstrap Icons
+- JWT para autenticação
+- Docker / Docker Compose
+
+---
+
+## 🔗 Integração com MFE
+
+Este Shell se comunica com MFEs remotos definidos em `federation.config.js`. O carregamento dos MFEs é feito dinamicamente via **es-module-shims**.
+
+> Certifique-se de que os MFEs estejam no ar antes de rodar o Shell.
+
+---
+
+## ⚙️ Como Rodar Localmente
+
+### ✅ Pré-requisitos
+
+- Node.js `>=18.x`
+- Docker + Docker Compose
+- Angular CLI:
 
 ```bash
+npm install -g @angular/cli
+```
+
+▶️ Rodar via Docker Compose (recomendado)
+1. Clone todos os repositórios envolvidos (shell e MFEs)
+2. No diretório raiz do docker-compose.yml, execute:
+```bash
+docker compose up --build
+```
+3. Acesse o Shell em http://localhost:4200
+
+▶️ Rodar localmente sem Docker
+```bash
+npm install
 ng serve
 ```
+---
+## 📁 Estrutura
+- `federation.config.js` — Configurações dos remotes (MFEs)
+- `webpack.config.js` — Configuração de build para o Native Federation
+- `app.routes.ts` — Configuração de rotas e lazy loading dos MFEs
+---
+## 📦 Dependências Principais
+- `@angular-architects/native-federation`
+- `@softarc/native-federation-node`
+- `es-module-shims`
+- `jwt-decode`
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🤝 Contribuições
+Contribuições são bem-vindas!
+Sinta-se à vontade para abrir issues com sugestões ou problemas, ou enviar pull requests com melhorias.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
 
-## Building
 
-To build the project run:
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
