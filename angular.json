@@ -83,6 +83,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/poupai/browser",
               "budgets": [
                 {
                   "type": "initial",
@@ -98,6 +99,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "outputPath": "dist/poupai/browser",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
