@@ -1,0 +1,34 @@
+@use '../../../../styles/base/index' as *;
+
+.login-content{
+    display: none;
+}
+
+@include respond(md){
+    .login-content{
+    display: none;
+}
+}
+
+@include respond(lg) {
+    .login-content{
+    width: 50dvw;
+    background-color: $blue-500;
+    height: 100dvh;
+    @include flex-center;
+    flex-direction: column;
+    gap: 10px;
+
+
+    &__img{
+        width: 50%;
+    }
+
+    &__text{
+        color: $white;
+        @include font-body-2;
+        text-align: center;
+        width: 70%;
+    }
+}
+}

@@ -1,0 +1,70 @@
+@use "../../../../styles/base/index" as *;
+
+.services-top{
+    display: flex;
+    flex-direction: column;
+
+    &__title{
+        @include font-heading-3;
+    }
+
+    &__container{
+        background-color: $blue-500;
+        display: flex;
+        padding: 1.875rem;
+        border-radius: 1rem;
+        &__left{
+            display: flex;
+            flex-direction: column;
+            gap: 0.9375rem;
+
+            &__first{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                &__title{
+                    @include font-heading-4;
+                    color: $white
+                }
+
+                &__paragraph{
+                    @include font-body-2;
+                    color: $white;
+                }
+            }
+            &__second{
+                display: flex;
+                flex-direction: column;
+                gap: 0.3125rem;
+                padding-left: 3.125rem;
+
+                &__title{
+                    @include font-heading-4;
+                    color: $white
+                }
+
+                &__paragraph{
+                    @include font-body-2;
+                    color: $white;
+                }
+            }
+        }
+
+        &__img{
+            width: 25%;
+        }
+    }
+}
+
+@include respond(lg){
+    .services-top{
+    &__container{
+        
+        &__img{
+            width: 15%;
+        }
+    }
+}
+
+}

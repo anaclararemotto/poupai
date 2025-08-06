@@ -1,0 +1,37 @@
+@use "../../../../styles/base/index" as *;
+
+.container {
+  width: 50dvw;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5625rem;
+  gap: 10px;
+
+  &__title{
+    @include font-heading-4;
+  }
+
+  &__paragraph{
+    @include font-body-2;
+  }
+
+  &__info{
+    padding: 0.3125rem;
+    display: flex;
+    gap: 1rem;
+
+    &__icon{
+        background-color: $gray-300;
+        @include flex-center;
+        padding: 0.625rem 0.75rem;
+        border-radius: 100%;
+    }
+
+    &__text{
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+    }
+  }
+
+}

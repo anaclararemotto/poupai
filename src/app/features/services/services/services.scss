@@ -1,0 +1,16 @@
+@use "../../../../styles/base/index" as *;
+
+.services{
+    min-height: calc(100dvh - 13.125rem);
+    padding: 0rem 3.125rem;
+    font-family: $font-poppins;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@include respond(lg){
+    .services{
+        padding: 0rem 10.625rem;
+    }
+}
