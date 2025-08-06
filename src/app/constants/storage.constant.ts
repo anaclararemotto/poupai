@@ -1,0 +1,7 @@
+const STORAGE_KEYS = {
+  TOKEN: 'TOKEN_LOGIN',
+  USER: 'USER_INFO',
+  THEME: 'APP_THEME',
+};
+
+export { STORAGE_KEYS }
